@@ -1,0 +1,108 @@
+/* Main Style Sheet EcoMaps ~ By KvX Enterprise */
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+:root {
+    --font_logo: logo-designer;
+    --font_logo_2: logo-azonix;
+    --font_modern: kiona-regular;
+}
+@font-face {
+    font-family: logo-designer;
+    src: url('/assets/fonts/DESIGNER.otf');
+}
+@font-face {
+    font-family: logo-azonix;
+    src: url('/assets/fonts/Azonix.otf');
+}
+@font-face {
+    font-family: kiona-regular;
+    src: url('/assets/fonts/Kiona-Regular.ttf');
+}
+/* MAIN */
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+main { height: 100vh; }
+
+/* ----------------------------------------------------------------------- HEADER */
+.main-header-container {
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.72px 1.72px 2.4px;
+}
+.main-header-container > figure > figcaption {
+    font-family: var(--font_logo);
+    letter-spacing: 7px;
+    font-size: 2.2em;
+    margin-left: 1vw;
+}
+.main-header-container > div > a {
+    font-size: 1.38em;
+    text-decoration: none;
+    color: white;
+    font-family: var(--font_modern);
+}
+/* ----------------------------------------------------------------------- CONTENT */
+.main-content-container {
+    border: 2px solid red;
+}
+/* ----------------------------------------------------------------------- FOOTER */
+.main-footer {
+    font-family: 'Open Sans';
+    height: 72px;
+}
+.main-footer address > cite > a {
+    color: rgb(26, 184, 252);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 300ms ease-in-out;
+}
+.main-footer address > cite > a:hover {
+    filter: invert(1);
+}
+/* ----------------------------------------------------------------------- @ TOOLS */
+.logo-sizer { width: 48px; }
+.icon-sizer { width: 34px; }
+.hide_w {
+    visibility: hidden;
+    display: none;
+}
+.smooth-transition {
+    transition: all 300ms ease-in-out;
+    filter: opacity(0.48);
+}
+.hover-item:hover {
+    color: rgb(255, 110, 57);
+    filter: opacity(1);
+}
+.show_w {
+    visibility: visible;
+    display: block;
+}
+/* ----------------------------------------------------------------------- @ MEDIA QUERYS */
+/* Small devices ~ SM */
+@media (min-width: 570px) {
+
+}
+@media (min-width: 676px) {
+
+}
+/* Medium devices ~ MD*/
+@media (min-width: 768px) {
+
+}
+/* Large devices  ~ LG*/
+@media (min-width: 992px) {
+
+}
+/* Extra large devices ~ XL*/
+@media (min-width: 1480px) {
+
+}
+/* Extra Extra large devices ~ XXL*/
+@media (min-width: 1980px) {
+
+}
