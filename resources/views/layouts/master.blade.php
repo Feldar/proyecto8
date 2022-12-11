@@ -9,12 +9,12 @@
     <meta name="keywords" content="HTML5, CSS, JavaScript, EcoMaps, Calc Routes, Calc Gas, Blablacar">
     <meta name="author" content="KavX">
     <title>EcoMaps</title>
-    <link rel="icon" type="image/svg+xml" href="favicon_kvx.svg" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon_kvx.svg" sizes="any">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- BS4 Dependencyes -->
     <link rel="stylesheet" type="text/css" href="/assets/BS4/bootstrap.min.css"/>
     <!-- My Code -->
-    <link rel="stylesheet" type="text/css" href="MainStyleSheet.css"/>
+    <link rel="stylesheet" type="text/css" href="/MainStyleSheet.css"/>
     <script src="/assets/js/script.js"></script>
 </head>
 <body>
@@ -29,9 +29,9 @@
     <!-- Footer -->
     @include('partials.footer')
     <!-- BS4 JQUery & Popper.js -->
+    <script src="/assets/BS4/popper.min.js"></script>
     <!-- <script src="/assets/BS4/bootstrap.bundle.min.js"></script>
     <script src="/assets/BS4/vendor/jquery-slim.min.js"></script>
-    <script src="/assets/BS4/popper.min.js"></script>
     <script type="text/javascript" src="/assets/BS4/bootstrap.min.js"></script> -->
     <noscript>Sorry, your browser does not support JavaScript!</noscript>
 </body>

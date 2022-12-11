@@ -13,29 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // ------------------------------------- @ My Routes:
-Route::get('/', function () {
+Route::get('/', function() {
     return view('home');
 });
-Route::get('/login', function () {
+Route::get('/login', function() {
     return view('auth.login');
 });
-Route::get('/logout', function () {
+Route::get('/logout', function() {
     return view('auth.logout');
 });
-Route::get('/register', function () {
+Route::get('/register', function() {
     return view('auth.register');
 });
 Route::prefix('productos')->group(function() {
-    Route::get('/', function () {
+    // Se Acceden con el Prefijo  '/productos/...'
+    Route::get('/', function() {
         return view('productos.index');
     });
-    Route::get('/show/{id}', function () {
-        return view('productos.show');
-    });
-    Route::get('/create', function () {
+    Route::get('/create', function() {
         return view('productos.create');
     });
-    Route::get('/edit/{id}', function () {
-        return view('productos.edit');
+    Route::get('/show/{id}', function($id) {
+        return view('productos.show', ['id' => $id]);
+    });
+    Route::get('/edit/{id}', function($id) {
+        return view('productos.edit', ['id' => $id]);
     });
 });
