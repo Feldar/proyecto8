@@ -12,7 +12,30 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// ------------------------------------- @ My Routes:
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+Route::get('/login', function () {
+    return view('auth.login');
+});
+Route::get('/logout', function () {
+    return view('auth.logout');
+});
+Route::get('/register', function () {
+    return view('auth.register');
+});
+Route::prefix('productos')->group(function() {
+    Route::get('/', function () {
+        return view('productos.index');
+    });
+    Route::get('/show/{id}', function () {
+        return view('productos.show');
+    });
+    Route::get('/create', function () {
+        return view('productos.create');
+    });
+    Route::get('/edit/{id}', function () {
+        return view('productos.edit');
+    });
 });
