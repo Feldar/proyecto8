@@ -16,7 +16,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductosController;
 
 // ------------------------------------- @ My Routes:
-
 Route::get('/', [HomeController::class, 'getHome']);
 
 // Auth Sesion:
