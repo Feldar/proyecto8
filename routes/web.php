@@ -1,7 +1,4 @@
 <?php
-
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +9,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Imports:
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductosController;
+
 // ------------------------------------- @ My Routes:
-Route::get('/', function() {
-    return view('home');
-});
+
+Route::get('/', [HomeController::class, 'getHome']);
+
+// Auth Sesion:
 Route::get('/login', function() {
     return view('auth.login');
 });
@@ -25,18 +29,12 @@ Route::get('/logout', function() {
 Route::get('/register', function() {
     return view('auth.register');
 });
+
+// Productos:
 Route::prefix('productos')->group(function() {
     // Se Acceden con el Prefijo  '/productos/...'
-    Route::get('/', function() {
-        return view('productos.index');
-    });
-    Route::get('/create', function() {
-        return view('productos.create');
-    });
-    Route::get('/show/{id}', function($id) {
-        return view('productos.show', ['id' => $id]);
-    });
-    Route::get('/edit/{id}', function($id) {
-        return view('productos.edit', ['id' => $id]);
-    });
+    Route::get('/', [ProductosController::class, 'getIndex']);
+    Route::get('/create', [ProductosController::class, 'getCreate']);
+    Route::get('/show/{id}', [ProductosController::class, 'getShow']);
+    Route::get('/edit/{id}', [ProductosController::class, 'getEdit']);
 });
