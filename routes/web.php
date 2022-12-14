@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,30 +16,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // ------------------------------------- @ My Routes:
-Route::get('/', function() {
-    return view('home');
-});
-Route::get('/login', function() {
-    return view('auth.login');
-});
-Route::get('/logout', function() {
-    return view('auth.logout');
-});
-Route::get('/register', function() {
-    return view('auth.register');
-});
+Route::get('/', [HomeController::class, 'getHome']);
+
+Route::get('/login', [AuthController::class, 'getLogin']);
+
+Route::get('/logout', [AuthController::class, 'getLogout']);
+
+Route::get('/register', [AuthController::class, 'getRegister']);
+
 Route::prefix('productos')->group(function() {
     // Se Acceden con el Prefijo  '/productos/...'
-    Route::get('/', function() {
-        return view('productos.index');
-    });
-    Route::get('/create', function() {
-        return view('productos.create');
-    });
-    Route::get('/show/{id}', function($id) {
-        return view('productos.show', ['id' => $id]);
-    });
-    Route::get('/edit/{id}', function($id) {
-        return view('productos.edit', ['id' => $id]);
-    });
+    Route::get('/', [ProductoController::class, 'getIndex']);
+
+    Route::get('/create', [ProductoController::class, 'getCreate']);
+
+    Route::get('/show/{id}', [ProductoController::class, 'getShow']);
+
+    Route::get('/edit/{id}', [ProductoController::class, 'getEdit']);
 });
