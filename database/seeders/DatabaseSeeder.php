@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\ProductosPost;
+use App\Models\Productospost;
 use App\Models\User;
 use App\Models\Vehiculo;
 use Illuminate\Database\Seeder;
@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         self::seedUsers();
+        self::seedProductosPosts();
+        self::seedVehiculos();
     }
 
     private function seedUsers(){
@@ -50,11 +52,35 @@ class DatabaseSeeder extends Seeder
     private function seedVehiculos(){
         Vehiculo::truncate();
 
+        DB::table('vehiculos')->insert([
+            'matricula' => '1123 ELR',
+            'modelo_vehiculo' => 'Toyota AE86',
+            'anyo_matriculacion' => '1986',
+            'combustible' => 'gasolina',
+            'cv' => '140',
+            'plazas' => '5',
+
+        ]);
     }
 
     private function seedProductosPosts(){
-        ProductosPost::truncate();
+        Productospost::truncate();
 
+        DB::table('productosposts')->insert([
+            'titulo' => 'Viaje a Madrid',
+            'descripcion' => 'Ser Puntuales!',
+            'fecha_viaje' => '2022-12-17',
+            'hora_viaje' => '12:00',
+            'inicio_ruta' => 'Carlos III, Cartagena',
+            'destino_ruta' => 'Madrid, Warner Bross',
+            'precio' => 'AUTOCALCULADO_funcion_plazas_vehiculo_distancia',
+            'status_active' => true,
+            'allow_desvios' => false,
+            'estimacion_hora_llegada' => 'AUTOCALCULADO',
+            'distancia' => 'AUTOCALCULADO',
+            'plazas_disponibles' => '3',
+            'precio_persona' => '50'
+        ]);
     }
 
 }

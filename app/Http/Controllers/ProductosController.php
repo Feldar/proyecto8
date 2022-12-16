@@ -1,12 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Productospost;
+use App\Models\User;
+use App\Models\Vehiculo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductosController extends Controller {
     // Obtener Index:
     public function getIndex() {
-        return view('productos.index', ['array_productos' => $this->array_productos]);
+        $productos = Productospost::all();
+        return view('productos.index', ['productos' => $productos]);
     }
     // Obtener Create:
     public function getCreate() {
@@ -15,15 +21,17 @@ class ProductosController extends Controller {
     // Obtener Show ID:
     public function getShow($id) {
         return view('productos.show', [
-            'producto' => $this->array_productos[$id],
-            'id' => $id
+
+            'user' => $user = User::findorfail($id),
+            'vehiculo' => $vehiculo = Vehiculo::findorfail($id),
+            'producto' => $producto = Productospost::findorfail($id)
         ]);
     }
     // Obtener Edit ID:
     public function getEdit($id) {
         return view('productos.edit', [
-            'producto' => $this->array_productos[$id],
-            'id' => $id
+            'producto' => $user = Productospost::findorfail($id),
+            'vehiculo' => $vehiculo = Vehiculo::findorfail($id)
         ]);
     }
     // ------------------------- Almacenamiento de Datos Temporal (Variable Encapsulada):
