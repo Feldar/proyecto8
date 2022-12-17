@@ -19,22 +19,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        self::seedAdministrador();
         self::seedUsers();
         self::seedProductosPosts();
         self::seedVehiculos();
     }
 
-    private function seedUsers(){
+    private function seedAdministrador(){
         User::truncate();
 
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => env('ADMIN_EMAIL', 'admin@encuentro.test'),
+            'name' => env('ADMIN_USERNAME'),
+            'email' => env('ADMIN_EMAIL', 'admin@proyecto8.test'),
             'password' => bcrypt(env('ADMIN_PASSWORD','password')),
-            'apellidos' => 'admin',
-            'fecha_nacimiento' => '1970-01-01',
-            'telefono' => 000000000,
+            'apellidos' => env('ADMIN_SURNAME'),
+            'fecha_nacimiento' => env('ADMIN_NAC'),
+            'telefono' => env('ADMIN_PHONE'),
         ]);
+    }
+
+    private function seedUsers(){
 
         for ($i=0; $i < 10; $i++) {
             DB::table('users')->insert([
