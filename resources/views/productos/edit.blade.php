@@ -7,7 +7,8 @@
         </header>
         <div class="card">
             <div class="card-body" style="padding:30px">
-                <form action="{{ url('/productos/edit') . $producto->id }}" method="GET">
+                <form action="{{ url('/productos/edit/' . $producto->id) }}" method="POST">
+                    @method('PUT')
                     @csrf
                     <div class="form-group">
                         <label for="titulo">Título</label>
@@ -34,8 +35,24 @@
                         <input type="text" name="destino-ruta" id="destino-ruta" class="form-control" value="{{ $producto->destino_ruta }}">
                     </div>
                     <div class="form-group">
+                        <label for="Precio">Precio por persona</label>
+                        <input type="number" name="precio-persona" id="precio-persona" class="form-control" style="width: 25%;" value="{{ $producto->precio_persona }}">
+                    </div>
+                    <div class="form-group">
                         <label for="plazas">Plazas Disponibles</label>
-                        <input type="number" name="plazas" id="plazas" class="form-control" style="width: 25%;" value="{{ $vehiculo->plazas }}">
+                        <input type="number" name="plazas" id="plazas" class="form-control" style="width: 25%;" value="{{ $producto->plazas_disponibles }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="estimacion_hora_llegada">Hora de llegada</label>
+                        <input type="time" name="estimacion_hora_llegada" id="estimacion_hora_llegada" class="form-control" style="width: 25%;" value="{{ $producto->estimacion_hora_llegada }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="distancia">Distancia</label>
+                        <input type="text" name="distancia" id="distancia" class="form-control" value="{{ $producto->distancia }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio</label>
+                        <input type="text" name="precio" id="precio" class="form-control" value="{{ $producto->precio }}">
                     </div>
                     <div class="form-group">
                         <label for="allow-desvios">Se Admiten Desvios (si/no)</label>

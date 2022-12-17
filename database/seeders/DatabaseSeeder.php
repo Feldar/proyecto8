@@ -80,8 +80,8 @@ class DatabaseSeeder extends Seeder
             'precio' => 'AUTOCALCULADO_funcion_plazas_vehiculo_distancia',
             'status_active' => true,
             'allow_desvios' => false,
-            'estimacion_hora_llegada' => 'AUTOCALCULADO',
-            'distancia' => 'AUTOCALCULADO',
+            'estimacion_hora_llegada' => '00:00',
+            'distancia' => '40km',
             'plazas_disponibles' => '3',
             'precio_persona' => '50'
         ]);

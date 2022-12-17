@@ -29,31 +29,47 @@ class ProductosController extends Controller {
     }
     // Obtener Edit ID:
     public function getEdit($id) {
+
         return view('productos.edit', [
-            'producto' => $user = Productospost::findorfail($id),
-            'vehiculo' => $vehiculo = Vehiculo::findorfail($id)
+            'producto' => $user = Productospost::findorfail($id)
         ]);
     }
-    // ------------------------- Almacenamiento de Datos Temporal (Variable Encapsulada):
-    private $array_productos = [
-        // Key, en el ForEach sera = 0, 1, 2 .. Posicion de Arrays Dentro del Array
-        [
-            'postID' => 0,
-            'userID' => 'denis17',
-            'titulo' => 'Viaje a Madrid',
-            'descripcion' => 'Ser Puntuales!',
-            'fecha_viaje' => '17/12/2022',
-            'hora_viaje' => '12:00',
-            'inicio_ruta' => 'Carlos III, Cartagena',
-            'destino_ruta' => 'Madrid, Warner Bross',
-            'plazas' => '3',
-            'precio' => 'AUTOCALCULADO_funcion_plazas_vehiculo_distancia',
-            'status_active' => 'true',
-            'allow_desvios' => 'false',
-            'estimacion_hora_llegada' => 'AUTOCALCULADO',
-            'distancia' => 'AUTOCALCULADO',
-            'email' => 'devengvengg@gmail.com',
-            'tfn' => '662 468 091'
-        ]
-    ];
+
+    public function postCreate(Request $request)
+    {
+        $producto = new Productospost;
+        $producto->titulo = $request->input('titulo');
+        $producto->fecha_viaje = $request->input('fecha-viaje');
+        $producto->hora_viaje = $request->input('hora-viaje');
+        $producto->descripcion = $request->input('descripcion');
+        $producto->inicio_ruta = $request->input('inicio-ruta');
+        $producto->destino_ruta = $request->input('destino-ruta');
+        $producto->plazas_disponibles = $request->input('plazas');
+        $producto->precio_persona = $request->input('precio-persona');
+        $producto->estimacion_hora_llegada = $request->input('estimacion_hora_llegada');
+        $producto->distancia = $request->input('distancia');
+        $producto->precio = $request->input('precio');
+        $producto->save();
+        return redirect()->action([ProductosController::class, 'getIndex']);
+    }
+
+    public function putEdit(Request $request, $id)
+    {
+        $producto = Productospost::findorfail($id);
+        $producto->titulo = $request->input('titulo');
+        $producto->fecha_viaje = $request->input('fecha-viaje');
+        $producto->hora_viaje = $request->input('hora-viaje');
+        $producto->descripcion = $request->input('descripcion');
+        $producto->inicio_ruta = $request->input('inicio-ruta');
+        $producto->destino_ruta = $request->input('destino-ruta');
+        $producto->plazas_disponibles = $request->input('plazas');
+        $producto->precio_persona = $request->input('precio-persona');
+        $producto->estimacion_hora_llegada = $request->input('estimacion_hora_llegada');
+        $producto->distancia = $request->input('distancia');
+        $producto->precio = $request->input('precio');
+        $producto->save();
+        return view('productos.edit', [
+            'producto' => $user = Productospost::findorfail($id)
+        ]);
+    }
 }

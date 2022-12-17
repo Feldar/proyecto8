@@ -7,19 +7,19 @@
         </header>
         <div class="card">
             <div class="card-body" style="padding:30px">
-                <form action="{{ url('/productos/create') }}" method="GET">
+                <form action="{{ url('/productos/create') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="titulo">Título</label>
-                        <input type="text" name="titulo" id="titulo" class="form-control">
+                        <input type="text" name="titulo" id="titulo" class="form-control"">
                     </div>
                     <div class="form-group">
                         <label for="fecha-viaje">Fecha Viaje</label>
-                        <input type="date" name="fecha-viaje" id="fecha-viaje" class="form-control">
+                        <input type="date" name="fecha-viaje" id="fecha-viaje" class="form-control"">
                     </div>
                     <div class="form-group">
                         <label for="hora-viaje">Hora Viaje</label>
-                        <input type="time" name="hora-viaje" id="hora-viaje" class="form-control">
+                        <input type="time" name="hora-viaje" id="hora-viaje" class="form-control"">
                     </div>
                     <div class="form-group">
                         <label for="descripcion">Descripcion</label>
@@ -34,8 +34,24 @@
                         <input type="text" name="destino-ruta" id="destino-ruta" class="form-control">
                     </div>
                     <div class="form-group">
+                        <label for="Precio">Precio por persona</label>
+                        <input type="number" name="precio-persona" id="precio-persona" class="form-control" style="width: 25%;">
+                    </div>
+                    <div class="form-group">
                         <label for="plazas">Plazas Disponibles</label>
                         <input type="number" name="plazas" id="plazas" class="form-control" style="width: 25%;">
+                    </div>
+                    <div class="form-group">
+                        <label for="estimacion_hora_llegada">Hora de llegada</label>
+                        <input type="time" name="estimacion_hora_llegada" id="estimacion_hora_llegada" class="form-control" style="width: 25%;">
+                    </div>
+                    <div class="form-group">
+                        <label for="distancia">Distancia</label>
+                        <input type="text" name="distancia" id="distancia" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio</label>
+                        <input type="text" name="precio" id="precio" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="allow-desvios">Se Admiten Desvios (si/no)</label>

@@ -20,7 +20,7 @@
             <li>Inicio de la Ruta: {{ $producto->inicio_ruta }}</li>
             <li>Destino de la Ruta: {{ $producto->destino_ruta }}</li>
             <li>Admiten Desvios: {{ $producto->allow_desvios }}</li>
-            <li>Plazas Disponibles: {{ $vehiculo->plazas }}</li>
+            <li>Plazas Disponibles: {{ $producto->plazas_disponibles }}</li>
             <li>Precio por Persona: {{ $producto->precio }}</li>
             <li>Hora de llegada Estimada: {{ $producto->estimacion_hora_llegada }}</li>
             <li>Distancia a Recorrer: {{ $producto->distancia }}</li>

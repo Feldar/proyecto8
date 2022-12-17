@@ -22,8 +22,8 @@ class CreateProductospostsTable extends Migration
             $table->string('destino_ruta');
             $table->integer('plazas_disponibles');
             $table->string('precio_persona');
-            $table->boolean('status_active');
-            $table->boolean('allow_desvios');
+            $table->boolean('status_active')->default(true);
+            $table->boolean('allow_desvios')->default(true);
             $table->string('estimacion_hora_llegada');
             $table->string('distancia');
             $table->timestamps();
